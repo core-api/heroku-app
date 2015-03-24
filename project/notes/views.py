@@ -29,10 +29,10 @@ def note_detail(request, pk):
         return Response(status=204)
 
     elif request.method == 'PUT':
-        if 'description' in data:
-            instance.description = str(data['description'])
-        if 'complete' in data:
-            instance.complete = bool(data['complete'])
+        if 'description' in request.data:
+            instance.description = str(request.data['description'])
+        if 'complete' in request.data:
+            instance.complete = bool(request.data['complete'])
         instance.save()
 
     doc = get_note(instance)
