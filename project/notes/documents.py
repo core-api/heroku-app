@@ -25,7 +25,7 @@ def get_note(instance):
         url='/%s' % instance.pk,
         title='Note',
         content={
-            'description': intance.description,
+            'description': instance.description,
             'complete': instance.complete,
             'edit': Link(trans='update', fields=['description', 'complete']),
             'delete': Link(trans='delete')
