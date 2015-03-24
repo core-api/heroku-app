@@ -1,10 +1,8 @@
-from django.conf.urls import patterns, include, url
-from django.contrib import admin
+from django.conf.urls import url
+from project.notes.views import note_list, note_detail
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'project.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
 
-    url(r'^admin/', include(admin.site.urls)),
-)
+urlpatterns = [
+    url(r'^', note_list),
+    url(r'^(?P<pk>[^/]+)', note_detail)
+]
