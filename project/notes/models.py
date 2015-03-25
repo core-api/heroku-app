@@ -10,3 +10,14 @@ class Note(models.Model):
 
     class Meta:
         ordering = ('-created',)
+
+    def update(self, **kwargs):
+        assert all([
+            key in ('description', 'complete') for key in kwargs.keys()
+        ])
+
+        if 'description' in kwargs:
+            self.description = kwargs['description']
+        if 'complete' in kwargs:
+            self.complete = kwargs['complete']
+        self.save()

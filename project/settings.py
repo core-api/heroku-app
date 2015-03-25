@@ -82,5 +82,6 @@ STATICFILES_DIRS = (
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
         'project.notes.renderers.CoreAPIJSONRenderer'
-    ]
+    ],
+    'EXCEPTION_HANDLER': 'project.notes.exceptions.custom_exception_handler'
 }

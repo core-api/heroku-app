@@ -6,4 +6,4 @@ class CoreAPIJSONRenderer(BaseRenderer):
     media_type = 'application/json'
 
     def render(self, data, media_type=None, renderer_context=None):
-        return dump(data)
+        return dump(data, verbose=True)
