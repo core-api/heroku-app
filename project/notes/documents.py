@@ -12,7 +12,7 @@ def get_notes(queryset):
             'notes': [
                 get_note(instance) for instance in queryset
             ],
-            'add_note': Link(trans='action', fields=[required('description')])
+            'add_note': Link(action='post', fields=[required('description')])
         }
     )
 
@@ -27,7 +27,7 @@ def get_note(instance):
         content={
             'description': instance.description,
             'complete': instance.complete,
-            'edit': Link(trans='update', fields=['description', 'complete']),
-            'delete': Link(trans='delete')
+            'edit': Link(action='put', fields=['description', 'complete']),
+            'delete': Link(action='delete')
         }
     )
