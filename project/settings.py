@@ -16,9 +16,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', '1234567890')
 
 DEBUG = os.environ.get('DEBUG', 'true').lower() == 'true'
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get('HOSTNAME', '*').split(',')
 
 
 # Application definition
@@ -80,7 +80,8 @@ REST_FRAMEWORK = {
         'project.notes.renderers.CoreAPIJSONRenderer',
         'project.notes.renderers.CoreAPIHTMLRenderer'
     ],
-    'EXCEPTION_HANDLER': 'project.notes.exceptions.custom_exception_handler'
+    'EXCEPTION_HANDLER': 'project.notes.exceptions.custom_exception_handler',
+    'UNAUTHENTICATED_USER': None
 }
 
 OPBEAT = {
