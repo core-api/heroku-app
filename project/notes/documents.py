@@ -1,4 +1,4 @@
-from coreapi import Document, Link, required
+from coreapi import Document, Link, Field
 
 
 def get_notes(queryset):
@@ -12,7 +12,7 @@ def get_notes(queryset):
             'notes': [
                 get_note(instance) for instance in queryset
             ],
-            'add_note': Link(action='post', fields=[required('description')])
+            'add_note': Link(action='post', fields=[Field('description', required=True)])
         }
     )
 
