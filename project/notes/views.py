@@ -26,7 +26,10 @@ def note_detail(request, pk):
     try:
         instance = Note.objects.get(pk=pk)
     except Note.DoesNotExist:
-        error = Error(['This note no longer exists.'])
+        error = Error(
+            title='Not found',
+            content={"messages": ['This note no longer exists.']}
+        )
         return Response(error, status=404)
 
     if request.method == 'DELETE':
