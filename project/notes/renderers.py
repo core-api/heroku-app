@@ -18,7 +18,7 @@ class HALRenderer(BaseRenderer):
         return codec.dump(data, verbose=True)
 
 
-class CoreAPIHTMLRenderer(BaseRenderer):
+class HTMLRenderer(BaseRenderer):
     media_type = 'text/html'
 
     def render(self, data, media_type=None, renderer_context=None):
