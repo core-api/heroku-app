@@ -1,12 +1,20 @@
 from rest_framework.renderers import BaseRenderer
-from coreapi.codecs import HTMLCodec, CoreJSONCodec
+from coreapi.codecs import HTMLCodec, CoreJSONCodec, HALCodec
 
 
-class CoreAPIJSONRenderer(BaseRenderer):
+class CoreJSONRenderer(BaseRenderer):
     media_type = 'application/vnd.coreapi+json'
 
     def render(self, data, media_type=None, renderer_context=None):
         codec = CoreJSONCodec()
+        return codec.dump(data, verbose=True)
+
+
+class HALRenderer(BaseRenderer):
+    media_type = 'application/hal+json'
+
+    def render(self, data, media_type=None, renderer_context=None):
+        codec = HALCodec()
         return codec.dump(data, verbose=True)
 
 
