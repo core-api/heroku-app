@@ -77,8 +77,9 @@ STATICFILES_DIRS = (
 
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': [
-        'project.notes.renderers.CoreAPIJSONRenderer',
-        'project.notes.renderers.CoreAPIHTMLRenderer'
+        'project.notes.renderers.CoreJSONRenderer',
+        'project.notes.renderers.HALRenderer',
+        'project.notes.renderers.HTMLRenderer'
     ],
     'EXCEPTION_HANDLER': 'project.notes.exceptions.custom_exception_handler',
     'UNAUTHENTICATED_USER': None
